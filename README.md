@@ -8,4 +8,4 @@
 # git hub repository
 https://github.com/jeremyarland/webappcw1individual
 # git hub link page
-https://github.com/jeremyarland/webappcw1individual/index.html
+https://jeremyarland.github.io/webappcw1individual/
