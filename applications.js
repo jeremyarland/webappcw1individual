@@ -1,3 +1,4 @@
+
 const app = Vue.createApp({
     el: '#app',
     data() {
@@ -8,11 +9,14 @@ const app = Vue.createApp({
             lessons: lessonsObj,
             location: false,
             price: false,
+            searchar:[],
             availability: false,
             subject: false,
-            ascending: false,
-            descending: false,
-            search: false,
+            asec: false,
+            desc: false,
+            search: "",
+            resultpage:false,
+            validationcheck:false,
             orders:
             {
                 name: '',
@@ -23,8 +27,62 @@ const app = Vue.createApp({
     },
     methods: {
         sorted (){
-       
-        },
+        
+            if (this.subject==true && this.location==false && this.price==false && this.availability==false)
+            { 
+               if (this.asec==true){
+                this.lesson.sort(function(a,b)
+                {
+                    return a.subject - b.subject;
+                });
+               }
+               else{
+
+               }
+            }
+            if (this.subject==false && this.location==true && this.price==false && this.availability==false)
+            { 
+               if (this.asec==true){
+                
+               }
+               else{
+
+               }
+            }
+            if (this.subject==false && this.location==false && this.price==true && this.availability==false)
+            { 
+                if (this.asec==true){ console.log ("HI");
+                        this.lesson.sort(function(a,b)
+                        {
+                          console.log ("HI");
+                            return a.price - b.price;
+                        });
+                }
+                else{
+
+                }
+            }
+            if (this.subject==false && this.location==false && this.price==false && this.availability==true)
+            { 
+                if (this.asec==true){
+                
+                }
+                else{
+
+                }
+            }
+  },
+  srch(){
+    for(let i=0;i<this.lessons;i++){
+        if(this.lessons[i].subject.includes(this.search)){
+            this.searchar.push(lessons[i]);
+            this.resultpage=true;
+        }
+        else{
+            searchar=[];
+        }
+    }
+  },
         toBasket(index) {
             console.log(index);
             this.lessons[index].spaces--;
@@ -78,6 +136,15 @@ const app = Vue.createApp({
             });
 
             return val;
+        },
+        validation(){
+            
+            if(/^[a-zA-Z]+$/.test(this.orders.name)&& /^\d+$/.test(this.orders.phone)){
+                this.validationcheck=true;
+               }
+               else{
+                   this.validationcheck=false;
+               }
         },
         sortedArray(){
             
