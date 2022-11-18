@@ -1,7 +1,7 @@
 
 #card{
     width: 300px;
-    height: 170px;
+    height: 250px;
     border-radius: 30px;
     background-color: rgb(85, 218, 105);
     margin: 10px;
@@ -34,4 +34,7 @@
 
 .product-image {
   width: 40%;
+}
+#validatepart{
+    margin-top:250px;
 }
