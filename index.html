@@ -34,22 +34,24 @@
           <main>
             <div id="sorting">
               <h3>Sort by:</h3>
-                <input v-model="search" value="search"><a>Search</a>
-                <input type="radio"  v-model="subject" value="subject"><a>Subject</a>
-                <input type="radio" v-model="location"value="location"><a>Location</a>
-                <input type="radio" v-model="price" value="price"><a>Price</a>
-                <input type="radio" v-model="availability" value="availability"><a>Availability</a>
+                <input v-model="search"  v-on:change="srch"><a>Search</a> 
+                <input type="checkbox"  v-model="subject" ><a>Subject</a>
+                <input type="checkbox" v-model="location"><a>Location</a>
+                <input type="checkbox" v-model="price"><a>Price</a>
+                <input type="checkbox" v-model="availability" ><a>Availability</a>
               </select>
               <div class="mini-cont">
                 <label for="asc">Ascending</label>
-                <input name='sortRadiobtn'  type="radio" id="asc" value="" v-model="sortingasec" v-on:change ="sorted" />
+                <input name='sortRadiobtn'  type="checkbox" id="asc" value="" v-model="asec" />
               
                 <label for="dsc">Descending</label>
-                <input  name='sortRadiobtn' type="radio" id="dsc" value="" v-model="sortingdesc" v-on:change ="sorted" />
+                <input  name='sortRadiobtn' type="checkbox" id="dsc" value="" v-model="desc" />
+                <input  type="button"  v-on:click= "sorted"/>
               </div>
             </div>
           </main>
-       
+        
+
            <div id='card' class='col-lg-8 col-sm-6' v-for="(lesson, index) in sortedArray">
             <img id="img" class='product-image' v-bind:src='lesson.imgSrc' alt='lesson.imgSrc'>
             <div>Subject: <b>{{ lesson.subject }}</b></div>
@@ -70,8 +72,9 @@
               </span>
             </div>
           </div>
-        </div>
+      
       </div>
+    </div>
     </div>
     <div v-else>
       <div class='container'>
@@ -86,14 +89,17 @@
             <div>Price: <b>£{{ lessons[c.id].price }}.00</b></div>
             <input class="basketbt" type="button" id="remToBasket" value="Remove" v-on:click="removeBasket(c.id)" />
           </div>
-          <strong>Name: </strong><input v-model='orders.name' />
-          <strong>Phone: </strong><input v-model='orders.phone' />
-          <input class="basketbt" type="button" id="proceedBuy" value="Confirm Order" v-on:click="confirmOrder()" />
-          <h2>Total Quantity: {{ cartQty }}</h2>
-          <h2>Total Price: £{{ cartTotal }}.00</h2>
+          
         </div>
       </div>
+      <div id="validatepart">
+      <strong>Name: </strong><input v-model='orders.name' v-on:input="validation"  />
+          <strong>Phone: </strong><input v-model='orders.phone' v-on:input="validation"  />
+          <input class="basketbt" v-if="validationcheck==true" type="button" id="proceedBuy" value="Confirm Order" v-on:click="confirmOrder()" />
+          <h2>Total Quantity: {{ cartQty }}</h2>
+          <h2>Total Price: £{{ cartTotal }}.00</h2>
     </div>
+  </div>
   </div>
 
   <script src="lesson.js"></script>
