@@ -90,4 +90,4 @@ const lessonsObj = {
         price: 9,
         spaces: 5,
     },
-}
+} 
