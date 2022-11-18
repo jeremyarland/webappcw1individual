@@ -1,0 +1,37 @@
+
+#card{
+    width: 300px;
+    height: 170px;
+    border-radius: 30px;
+    background-color: rgb(85, 218, 105);
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+#img {
+    width: 25%;
+    background-color: rgba(148, 49, 170, 0.466);
+    border-radius: 20px;
+    float:right;
+}
+
+.right {
+    float: right;
+    text-align: center;
+    font-size: larger;
+    padding: 5px
+}
+
+.basketbt {
+    border: 1px;
+    border-radius: 10px;
+    height: 30px;
+    color: rgb(198, 221, 122);
+    background-color: rgb(57, 26, 211);
+    margin: 5px;
+}
+
+.product-image {
+  width: 40%;
+}
